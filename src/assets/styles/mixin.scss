@@ -70,6 +70,13 @@ $darkTextColor: #333;
 	justify-content: $type;
 
 }
+//清除浮动
+@mixin clearFix(){
+    overflow:hidden;
+    &:after{
+		content:'';
+	}
+}
 
 
 
