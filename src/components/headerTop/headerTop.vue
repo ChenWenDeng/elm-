@@ -33,9 +33,10 @@ export default {
         .header_search{
             display: flex;
             align-items: center;
-            justify-content: center;
-            @include wh(3.125rem,2.5rem);
+            //justify-content: center;
+            @include wh(5rem,2.5rem);
             @include sc(1rem, #fff);
+            padding-left: 0.625rem;
         }
         .header_text{
             flex: 1;

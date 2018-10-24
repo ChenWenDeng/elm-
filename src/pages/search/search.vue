@@ -38,9 +38,10 @@ export default {
         .header_search{
             display: flex;
             align-items: center;
-            justify-content: center;
-            @include wh(3.125rem,2.5rem);
+            //justify-content: center;
+            @include wh(5rem,2.5rem);
             @include sc(1rem, #fff);
+            padding-left: 0.625rem;
         }
         .header_text{
             flex: 1;
@@ -73,6 +74,7 @@ export default {
             background-color: #f2f2f2;
             font-weight: bold;
             padding: 0 0.625rem;
+            outline: none;
         }
         .search-submit{
             flex: 1;
@@ -83,7 +85,7 @@ export default {
             background-color: $yellow;
             font-weight: bold;
             padding:0 0.3125rem;
-
+            outline: none;
         }
     }
 </style>
