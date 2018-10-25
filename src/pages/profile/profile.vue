@@ -8,7 +8,7 @@
             </section>
         </headerTop>
         <section class="profile-number">
-            <a href="" class="profile-link">
+            <router-link to="/login" class="profile-link">
                 <div class="profile-image">
                     <i class="iconfont icon-geren1"></i>
                 </div>
@@ -24,7 +24,7 @@
                 <span class="arrow">
                     <i class="iconfont icon-right1"></i>
                 </span>
-            </a>
+            </router-link>
         </section>
         <section class="profile-info-data">
             <ul class="info-data-list">
