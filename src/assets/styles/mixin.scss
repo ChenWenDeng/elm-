@@ -70,11 +70,20 @@ $darkTextColor: #333;
 	justify-content: $type;
 
 }
-//清除浮动
-@mixin clearFix(){
-    overflow:hidden;
+
+
+@mixin bottom-border-1px($color){
+    position: relative;
+    border: none;
     &:after{
-		content:'';
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $color;
+		//transfrom: scaleY(0.5);
 	}
 }
 

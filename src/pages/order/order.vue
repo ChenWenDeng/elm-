@@ -1,15 +1,12 @@
 <template>
     <div class="order--page">
-        <header class="head_top">
-            <section class="header_search">
+        <headerTop title="订单列表">
+            <section class="header_search" slot="left">
                 <i class="iconfont icon-right2"></i>
             </section>
-            <section class="header_text">
-                <span>订单列表</span>
+            <section class="header_login" slot="right"> 
             </section>
-            <section class="header_login"> 
-            </section>
-        </header>
+        </headerTop>
         <section class="order-no-login">
             <img src="http://img5.imgtn.bdimg.com/it/u=488869050,2484180533&fm=26&gp=0.jpg" alt="">
             <h3>登录后查看外卖订单</h3>
@@ -19,46 +16,18 @@
 </template>
 
 <script>
+import headerTop from '../../components/headerTop/headerTop'
 export default {
-    
+    name: 'order',
+    components:{
+        headerTop
+    }
 }
 </script>
 
 <style lang="scss" scoped>
     @import '.~styles/mixin.scss';
     .order--page{
-        .head_top{
-            background-color: $yellow;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            @include wh(100%, 2.5rem);
-            .header_search{
-                display: flex;
-                align-items: center;
-                //justify-content: center;
-                @include wh(5rem,2.5rem);
-                @include sc(1rem, #fff);
-                padding-left: 0.625rem;
-            }
-            .header_text{
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include sc(1rem, #fff);
-            }
-            .header_login{
-                @include wh(5rem,2.5rem);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include sc(1rem, #fff);
-            }
-        }
         .order-no-login{
             padding-top: 8.75rem;
             width: 60%;

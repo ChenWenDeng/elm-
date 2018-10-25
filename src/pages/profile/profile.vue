@@ -1,15 +1,12 @@
 <template>
     <div class="profile-page">
-        <header class="head_top">
-            <section class="header_search">
+        <headerTop title="我的">
+            <section class="header_search" slot="left">
                 <i class="iconfont icon-right2"></i>
             </section>
-            <section class="header_text">
-                <span>我的</span>
+            <section class="header_login" slot="right"> 
             </section>
-            <section class="header_login"> 
-            </section>
-        </header>
+        </headerTop>
         <section class="profile-number">
             <a href="" class="profile-link">
                 <div class="profile-image">
@@ -49,37 +46,37 @@
           <!-- 我的订单 -->
           <a href='javascript:' class="my_order">
             <span>
-              <i class="iconfont icon-dingdanguanli-"></i>
+                <i class="iconfont icon-dingdanguanli-"></i>
             </span>
             <div class="my_order_div">
-              <span>我的订单</span>
-              <span class="my_order_icon">
-                <i class="iconfont icon-arrow-left1"></i>
-              </span>
+                <span>我的订单</span>
+                <span class="my_order_icon">
+                    <i class="iconfont icon-right"></i>
+                </span>
             </div>
           </a>
           <!-- 积分商城 -->
           <a href='javascript:' class="my_order">
             <span>
-              <i class="iconfont icon-jifen"></i>
+                <i class="iconfont icon-jifen"></i>
             </span>
             <div class="my_order_div">
-              <span>积分商城</span>
-              <span class="my_order_icon">
-                <i class="iconfont icon-arrow-left1"></i>
-              </span>
+                <span>积分商城</span>
+                <span class="my_order_icon">
+                    <i class="iconfont icon-right"></i>
+                </span>
             </div>
           </a>
           <!-- 硅谷外卖会员卡 -->
           <a href="javascript:" class="my_order">
             <span>
-              <i class="iconfont icon-vip"></i>
+                <i class="iconfont icon-huiyuan"></i>
             </span>
             <div class="my_order_div">
-              <span>硅谷外卖会员卡</span>
-              <span class="my_order_icon">
-                <i class="iconfont icon-arrow-left1"></i>
-              </span>
+                <span>硅谷外卖会员卡</span>
+                <span class="my_order_icon">
+                    <i class="iconfont icon-right"></i>
+                </span>
             </div>
           </a>
         </section>
@@ -87,13 +84,13 @@
           <!-- 服务中心 -->
           <a href="javascript:" class="my_order">
             <span>
-              <i class="iconfont icon-fuwu"></i>
+                <i class="iconfont icon-fuwuzhongxin"></i>
             </span>
             <div class="my_order_div">
-              <span>服务中心</span>
-              <span class="my_order_icon">
-                <i class="iconfont icon-arrow-left1"></i>
-              </span>
+                <span>服务中心</span>
+                <span class="my_order_icon">
+                    <i class="iconfont icon-right"></i>
+                </span>
             </div>
           </a>
         </section>
@@ -101,8 +98,12 @@
 </template>
 
 <script>
+import headerTop from '../../components/headerTop/headerTop'
 export default {
-    
+    name: 'profile',
+    components:{
+        headerTop
+    }
 }
 </script>
 
@@ -259,29 +260,30 @@ export default {
             margin-top: 10px;
             background: #fff;
             .my_order{
-              display: flex;
-              align-items: center;
-              padding-left: 15px;
-              >span{
                 display: flex;
                 align-items: center;
-                width: 20px;
-                height: 20px;
-                >.iconfont{
-                  margin-left: -10px;
-                  font-size: 1rem;
-                .icon-dingdanguanli-{
-                  color: #02a774;
-                }
-                .icon-jifen{
-                  color: #ff5f3e;
-                }
-                .icon-vip{
-                  color: #f90;
-                }
-                .icon-fuwu{
-                  color: #02a774;
-                }
+                padding-left: 15px;
+                >span{
+                    display: flex;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                    >.iconfont{
+                        margin-left: -10px;
+                        font-size: 1rem;
+                    }
+                    .icon-dingdanguanli-{
+                        color: #02a774;
+                    }
+                    .icon-jifen{
+                        color: #ff5f3e;
+                    }
+                    .icon-huiyuan{
+                        color: #f90;
+                    }
+                    .icon-fuwuzhongxin{
+                        color: rgb(94, 94, 247);
+                    }
                 }
             }
             .my_order_div{
@@ -293,17 +295,17 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 span{
-                  display: block;
+                    display: block;
                 }
                 .my_order_icon{
-                  width: 10px;
-                  height: 10px;
+                    width: 10px;
+                    height: 10px;
                 }
-                .icon-jiantou1{
+                .icon-right{
                     color: #bbb;
                     font-size: 10px;
                 }
-              }
+              
             }
         }
     }

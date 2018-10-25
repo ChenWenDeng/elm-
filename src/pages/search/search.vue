@@ -1,15 +1,12 @@
 <template>
     <div class="search-page">
-        <header class="head_top">
-            <section class="header_search">
+        <headerTop title="搜索">
+            <section class="header_search" slot="left">
                 <i class="iconfont icon-right2"></i>
             </section>
-            <section class="header_text">
-                <span>搜索</span>
+            <section class="header_login" slot="right">
             </section>
-            <section class="header_login"> 
-            </section>
-        </header>
+        </headerTop>
         <form class="search-form">
             <input type="search" class="search-input" placeholder="请输入商家或美食名称">
             <input type="submit" class="search-submit">
@@ -18,8 +15,12 @@
 </template>
 
 <script>
+import headerTop from '../../components/headerTop/headerTop'
 export default {
-    
+    name: 'search',
+    components:{
+        headerTop
+    }
 }
 </script>
 
@@ -27,38 +28,6 @@ export default {
     @import '.~styles/mixin.scss';
 
     .search-page{
-        .head_top{
-            background-color: $yellow;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            @include wh(100%, 2.5rem);
-            .header_search{
-                display: flex;
-                align-items: center;
-                //justify-content: center;
-                @include wh(5rem,2.5rem);
-                @include sc(1rem, #fff);
-                padding-left: 0.625rem;
-            }
-            .header_text{
-                flex: 1;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include sc(1rem, #fff);
-            }
-            .header_login{
-                @include wh(5rem,2.5rem);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include sc(1rem, #fff);
-            }
-        }
         .search-form{
             margin-top: 2.5rem;
             background: #fff;

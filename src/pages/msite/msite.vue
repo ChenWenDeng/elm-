@@ -1,6 +1,14 @@
 <template>
     <div class="msite">
-        <headerTop/>
+        <headerTop title="八卦岭宿舍区7栋">
+            <section class="header_search" slot="left">
+                <i class="iconfont icon-sousuo"></i>
+            </section>
+            <section class="header_login" slot="right">
+                <span>登录</span>|
+                <span>注册</span>
+            </section>
+        </headerTop>
         <swiper/>
         <div class="msite-shop-list">
             <div class="shop-header">

@@ -86,57 +86,6 @@ export default {
 
 <style lang="scss" scoped>
     @import '.~styles/mixin.scss';
-    
-    // .msite-nav{
-    //     margin-top: 2.5rem;
-    //     overflow: hidden;
-    //     height: 0;
-    //     padding-bottom: 50%;
-    //     border-bottom: 0.025rem solid $bc;
-    //     //background: green;
-    //     // .swiper-wrapper{
-    //     //      @include wh(100%,12.8rem);
-    //     // }
-    //     .link-to-food{
-    //         position: relative;
-    //         overflow: hidden;
-    //         float: left;
-    //         width: 25%;
-    //         height: 0;
-    //         padding-bottom: 25%;
-    //         //background: pink;
-    //         .food-container{
-    //             position: absolute;
-    //             top: 0;
-    //             left: 0;
-    //             right: 0;
-    //             bottom: 1.375rem;
-    //             box-sizing: border-box;
-    //             padding: 0.3125rem;
-    //             //background: red;
-    //             .icon-img-content{
-    //                 display: block;
-    //                 margin: 0 auto;
-    //                 height: 100%;
-    //             }
-    //         }
-    //         .icon-desc{
-    //             position: absolute;
-    //             left: 0;
-    //             right: 0;
-    //             bottom: 0;
-    //             height: 1.375rem;
-    //             line-height: 1.375rem;
-    //             text-align: center;
-    //             color: $darkTextColor;
-    //             font-size: 0.75rem;
-    //         }
-    //     }
-    //     .swiper-pagination{
-    //         margin-top: 1.25rem; 
-    //     }
-    // }
-
         .msite-nav{
             margin-top: 2.8125rem;
             height: 200px;
@@ -178,7 +127,7 @@ export default {
                 }
                 .swiper-pagination{
                     >span.swiper-pagination-bullet-active{
-                        background: red;
+                        background-color: red;
                     }
                 }
             }

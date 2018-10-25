@@ -1,21 +1,26 @@
 <template>
     <header class="head_top">
-        <section class="header_search">
+        <!-- <section class="header_search">
             <i class="iconfont icon-sousuo"></i>
-        </section>
+        </section> -->
+        <slot name="left"></slot>
         <section class="header_text">
-            <span>八卦岭宿舍区7栋</span>
+            <span class="ellipsis">{{title}}</span>
         </section>
-        <section class="header_login">
+        <slot name="right"></slot>
+        <!-- <section class="header_login">
            <span>登录</span>|
            <span>注册</span>
-        </section>
+        </section> -->
     </header>
 </template>
 
 <script>
 export default {
-    
+    name:'headerTop',
+    props:{
+        title: String
+    }
 }
 </script>
 
@@ -44,6 +49,12 @@ export default {
             justify-content: center;
             align-items: center;
             @include sc(1rem, #fff);
+            >span{
+                width: 12.5rem;
+                margin: 0 auto;
+                padding: 0 0.3125rem;
+                text-align: center;
+            }
         }
         .header_login{
             @include wh(5rem,2.5rem);
