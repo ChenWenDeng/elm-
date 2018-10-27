@@ -1,6 +1,6 @@
 <template>
    <div class="msite-nav">
-       <div class="swiper-container">
+       <div class="swiper-container" v-if="categorys.length">
            <div class="swiper-wrapper">
                <div class="swiper-slide" v-for="(categorys, index) in categorysArr" :key="index">
                     <div class="link-to-food" v-for="(category, index) in categorys" :key="index">
@@ -13,6 +13,7 @@
            </div>
            <div class="swiper-pagination"></div>
        </div>
+       <img src="./images/msite_back.svg" alt="back" v-else>
    </div>
 </template>
 
