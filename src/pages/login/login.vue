@@ -32,10 +32,11 @@
                                 <input type="text" maxlength="11" placeholder="手机/邮箱/用户名">
                             </section>
                             <section class="login-verification">
-                                <input type="text" maxlength="8" placeholder="密码">
-                                <div class="switch-button">
-                                    <div class="switch-circle"></div>
-                                    <span class="switch-text"></span>
+                                <input type="text" maxlength="8" placeholder="密码" v-if="showPwd" v-model="pwd">
+                                <input type="password" maxlength="8" placeholder="密码" v-else v-model="pwd">
+                                <div class="switch-button" :class="showPwd?'on':'off'" @click="showPwd=!showPwd">
+                                    <div class="switch-circle" :class="{right : showPwd}"></div>
+                                    <span class="switch-text">{{showPwd ? 'abc' : ''}}</span>
                                 </div>
                             </section>
                             <section class="login-message">
@@ -62,7 +63,9 @@ export default {
         return {
             loginWay: true,//true代表短信登录，flase代表密码登录
             computeTime: 0, //计时时间
+            showPwd: false, //是否显示密码
             phone: '',//手机号
+            pwd: '', //密码
         }
     },
     computed:{
@@ -177,7 +180,7 @@ export default {
                                 border-radius: 0.5rem;
                                 transform: background-color .3s,border-color .3s;
                                 padding: 0 0.375rem;
-                                width: 1.875rem;
+                                width: 2.1875rem;
                                 height: 1rem;
                                 line-height: 1rem;
                                 color: #fff;
@@ -207,7 +210,7 @@ export default {
                                     box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
                                     transition: transform .3s;
                                     &.right{
-                                        transform: translateX(30px);
+                                        transform: translateX(1.25rem)
                                     }
                                 }
                             }
