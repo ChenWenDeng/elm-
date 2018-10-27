@@ -12,8 +12,8 @@
                 <form action="">
                     <div :class="{on: loginWay}">
                         <section class="login-message">
-                            <input type="text" maxlength="11" placeholder="手机号">
-                            <button disabled="disabled" class="get-verification">
+                            <input type="text" maxlength="11" placeholder="手机号" v-model="phone">
+                            <button disabled="disabled" class="get-verification" :class="{right_phone: rightPhone}">
                                 获取验证码
                             </button>
                         </section>
@@ -60,8 +60,14 @@ export default {
     data(){
         return {
             loginWay: true,//true代表短信登录，flase代表密码登录
+            phone: '',//手机号
         }
     },
+    computed:{
+        rightPhone(){
+            return /^1\d{10}$/.test(this.phone)
+        }
+    }
 }
 </script>
 
@@ -134,7 +140,7 @@ export default {
                                 color: #ccc;
                                 font-size: 0.875rem;
                                 background-color: transparent;
-                                &.right-phone{
+                                &.right_phonel{
                                     color: black;
                                 }
                             }
