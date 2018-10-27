@@ -17,15 +17,16 @@
                     <h5 class="rating-order-num">
                         <section class="rating-order-num-left">
                             <section class="rating-section">
+                                <!-- <i class="iconfont icon-xingxing"></i>
                                 <i class="iconfont icon-xingxing"></i>
                                 <i class="iconfont icon-xingxing"></i>
                                 <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i>
+                                <i class="iconfont icon-xingxing"></i> -->
+                                <star :score="shop.rating" :size="24"></star>
                                 <span class="rating-num">{{shop.rating}}</span>
                             </section>
                             <section class="order-section">
-                                {{shop.recent_order_num}}
+                                月售{{shop.recent_order_num}}单
                             </section>
                         </section>
                         <section class="rating-order-num-right">
@@ -60,8 +61,12 @@
 
 <script>
 import {mapState} from 'vuex'
+import star from '../star/star'
 export default {
     name:'shopList',
+    components:{
+        star
+    },
     data(){
         return {
             //baseImgUrl: 'http://cangdu.org:8001/img/'
@@ -137,10 +142,10 @@ export default {
                         @include fj(flex-start);
                         .rating-section{
                             display: flex;
-                            .iconfont{
-                                font-size: 0.625rem;
-                                color: $yellow;
-                            }
+                            // .iconfont{
+                            //     font-size: 0.625rem;
+                            //     color: $yellow;
+                            // }
                             .rating-num{
                                 @include sc(0.4rem, #ff6000);
                                 margin: 0 0.3125rem;
