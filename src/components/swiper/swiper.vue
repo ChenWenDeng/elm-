@@ -27,9 +27,9 @@ export default {
             baseImageUrl:'https://fuss10.elemecdn.com'
         }
     },
-    mounted(){
-        this.$store.dispatch('getCategorys')
-    },
+    // mounted(){
+    //     this.$store.dispatch('getCategorys')
+    // },
     watch:{
         categorys(value){
             //界面更新就立即创建Swiper对象

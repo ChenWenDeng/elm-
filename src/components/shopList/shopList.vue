@@ -1,17 +1,17 @@
 <template>
     <div class="shop-list-container">
         <ul>
-            <li class="shop-li" v-for="(item, index) in shuru" :key="index">
+            <li class="shop-li" v-for="(shop, index) in shops" :key="index">
                 <section>
-                    <img class="shop-img" src="//fuss10.elemecdn.com/3/b1/65f6a454672513b72fbbf43df2236png.png?imageMogr2/thumbnail/140x140/format/webp/quality/85" alt="">
+                    <img class="shop-img" :src="shop.image_path">
                 </section>
                 <section class="shop-right" >
                     <header class="shop-detail-header">
-                        <h4 class="shop-title ellipsis">探鱼</h4>
+                        <h4 class="shop-title ellipsis">{{shop.name}}</h4>
                         <ul class="shop-detail-ul">
-                            <li class="supports">保</li>
-                            <li class="supports">准</li>
-                            <li class="supports">票</li>
+                            <li class="supports" v-for="(support, index) in shop.supports" :key="index">
+                                {{support.icon_name}}
+                            </li>
                         </ul>
                     </header>
                     <h5 class="rating-order-num">
@@ -22,27 +22,29 @@
                                 <i class="iconfont icon-xingxing"></i>
                                 <i class="iconfont icon-xingxing"></i>
                                 <i class="iconfont icon-xingxing"></i>
-                                <span class="rating-num">4.7</span>
+                                <span class="rating-num">{{shop.rating}}</span>
                             </section>
                             <section class="order-section">
-                                月售58单
+                                {{shop.recent_order_num}}
                             </section>
                         </section>
                         <section class="rating-order-num-right">
-                            <span class="delivery-style delivery-left">蜂鸟配送</span>
-                            <span class="delivery-style delivery-right">准时送</span>
+                            <span class="delivery-style delivery-left">{{shop.delivery_mode.text}}</span>
+                            <span class="delivery-style delivery-right">
+                                {{shop.supports[1].name}}
+                            </span>
                         </section>
                     </h5>
                     <h5 class="fee-distance">
                         <p class="fee">
-                            <span class="fee-left">￥15起送</span>
+                            <span class="fee-left">￥{{shop.float_minimum_order_amount}}起送</span>
                             /
-                            <span class="fee-right">配送费约5</span>
+                            <span class="fee-right">配送费约￥{{shop.float_delivery_fee}}</span>
                         </p>
                         <p class="distance_time">
-                            <span class="distance_time-left">126.3公里</span>
+                            <span class="distance_time-left">{{shop.distance}}公里</span>
                             /
-                            <span class="distance_time-right">1小时23分钟</span>
+                            <span class="distance_time-right">{{shop.order_lead_time}}</span>
                         </p>
                     </h5>
                 </section>
@@ -52,12 +54,16 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name:'shopList',
     data(){
         return {
-            shuru:['1','2','3','4','5','6','7','8','9','10','11','12']
+            //baseImgUrl: 'http://cangdu.org:8001/img/'
         }
+    },
+    computed:{
+        ...mapState(['shops'])
     }
 }
 </script>

@@ -34,6 +34,10 @@ export default {
     },
     computed:{
         ...mapState(['address'])
+    },
+    mounted(){
+        this.$store.dispatch('getCategorys')
+        this.$store.dispatch('getShops')
     }
 }
 </script>
