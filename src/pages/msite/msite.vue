@@ -1,6 +1,6 @@
 <template>
     <div class="msite">
-        <headerTop title="八卦岭宿舍区7栋">
+        <headerTop :title="address.name">
             <section class="header_search" slot="left">
                 <i class="iconfont icon-sousuo"></i>
             </section>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import headerTop from '../../components/headerTop/headerTop'
 import swiper from '../../components/swiper/swiper'
 import shopList from '../../components/shopList/shopList'
@@ -30,6 +31,9 @@ export default {
         headerTop,
         swiper,
         shopList
+    },
+    computed:{
+        ...mapState(['address'])
     }
 }
 </script>
