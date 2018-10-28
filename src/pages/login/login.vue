@@ -41,7 +41,8 @@
                             </section>
                             <section class="login-message">
                                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                                <img class="get-verification" src="./images/captcha.svg" alt="">
+                                <img class="get-verification" src="http://localhost:4000/captcha" alt=""
+                                    @click="getCaptcha">
                             </section>
                         </section>
                     </div>
@@ -129,9 +130,14 @@ export default {
                 }
             }
         },
+        //关闭警告框
         closeTip(){
              this.alertShow = false
             this.alertText = ''
+        },
+        //获取新的图片验证码
+        getCaptcha(event){
+            event.target.src = 'http://localhost:4000/captcha?tiem='+Date.now()
         }
     }
 }
