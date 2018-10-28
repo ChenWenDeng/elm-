@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="login-content">
-                <form action="">
+                <form @submit.prevent="login">
                     <div :class="{on: loginWay}">
                         <section class="login-message">
                             <input type="text" maxlength="11" placeholder="手机号" v-model="phone">
@@ -19,7 +19,7 @@
                             </button>
                         </section>
                         <section class="login-verification">
-                            <input type="text" maxlength="8" placeholder="验证码">
+                            <input type="text" maxlength="8" placeholder="验证码" v-model="code">
                         </section>
                         <section class="login-hint">
                             温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
@@ -29,7 +29,7 @@
                     <div :class="{on: !loginWay}" >
                         <section>
                             <section class="login-message">
-                                <input type="text" maxlength="11" placeholder="手机/邮箱/用户名">
+                                <input type="text" maxlength="11" placeholder="手机/邮箱/用户名" v-model="name">
                             </section>
                             <section class="login-verification">
                                 <input type="text" maxlength="8" placeholder="密码" v-if="showPwd" v-model="pwd">
@@ -40,7 +40,7 @@
                                 </div>
                             </section>
                             <section class="login-message">
-                                <input type="text" maxlength="11" placeholder="验证码">
+                                <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
                                 <img class="get-verification" src="./images/captcha.svg" alt="">
                             </section>
                         </section>
@@ -53,19 +53,29 @@
                 <i class="iconfont icon-right2"></i>
             </a>
         </div>
+        <alertTip :alertText="alertText" v-show="alertShow" @closeTip="closeTip"></alertTip>
     </section>
 </template>
 
 <script>
+import alertTip from '../../components/alertTip/alertTip'
 export default {
     name:'login',
+    components:{
+        alertTip
+    },
     data(){
         return {
             loginWay: true,//true代表短信登录，flase代表密码登录
             computeTime: 0, //计时时间
             showPwd: false, //是否显示密码
-            phone: '',//手机号
+            phone: '', //手机号
+            code: '', //短信验证码
+            name: '', //用户名
             pwd: '', //密码
+            captcha: '', //图形验证码
+            alertText: '', //提示文本
+            alertShow: false, //是否显示警告框
         }
     },
     computed:{
@@ -88,6 +98,40 @@ export default {
                 },1000)
                 //发送ajax请求手机验证码
             }
+        },
+        showAlert(alertText){
+            this.alertShow = true
+            this.alertText = alertText
+        },
+        //异步登录
+        login(){
+            //前台表单验证
+            if(this.loginWay){//短信登录
+                const {rightPhone,phone,code} = this
+                if(!this.rightPhone){
+                    //手机号不正确
+                    this.showAlert('手机号不正确')
+                }else if(!/^\d{6}$/.test(code)){
+                    //验证码必须市6位数字
+                    this.showAlert('验证码必须市6位数字')
+                }
+            }else{  //密码登录
+                const {name, pwd, captcha} = this
+                 if(!this.name){
+                    //用户名不正确
+                    this.showAlert('用户名不正确')
+                }else if(!this.pwd){
+                    //密码必须指定
+                    this.showAlert('密码必须指定')
+                }else if(!this.pcaptchawd){
+                    //验证码必须指定
+                    this.showAlert('验证码必须指定')
+                }
+            }
+        },
+        closeTip(){
+             this.alertShow = false
+            this.alertText = ''
         }
     }
 }
