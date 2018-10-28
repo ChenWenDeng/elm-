@@ -60,6 +60,7 @@
 
 <script>
 import alertTip from '../../components/alertTip/alertTip'
+import {reqSendCode, reqSmsLogin, reqPwdLogin} from '../../api'
 export default {
     name:'login',
     components:{
@@ -85,19 +86,30 @@ export default {
         }
     },
     methods:{
-        getCode(){
+        async getCode(){
             //如果当前没有计时
             if(!this.computeTime){
                 //启动倒计时
                 this.computeTime = 30
-                const intervalId = setInterval(()=>{
+                this.intervalId = setInterval(()=>{
                     this.computeTime--
                     if(this.computeTime<=0){
                         //停止计时
-                        clearInterval(intervalId)
+                        clearInterval(this.intervalId)
                     }
                 },1000)
                 //发送ajax请求手机验证码
+                const result = await reqSendCode(this.phone)
+                if(result.code === 1){
+                    //显示提示
+                    this.showAlert(result.msg)
+                    //停止计时
+                    if(this.computeTime){
+                        this.computeTime = 0
+                        clearInterval(this.intervalId)
+                        this.intervalId = undefined
+                    }
+                }
             }
         },
         showAlert(alertText){
