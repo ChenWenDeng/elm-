@@ -1,13 +1,15 @@
 <template>
     <div class="msite">
         <headerTop :title="address.name">
-            <section class="header_search" slot="left">
+            <router-link class="header_search" slot="left" to="/search">
                 <i class="iconfont icon-sousuo"></i>
-            </section>
-            <section class="header_login" slot="right">
-                <span>登录</span>|
-                <span>注册</span>
-            </section>
+            </router-link>
+            <router-link class="header_login" slot="right" :to="userInfo._id?'/userinfo':'/login'">
+                <span v-if="!userInfo._id">登录|注册</span>
+                <span v-else>
+                   <i class="iconfont icon-geren2"></i> 
+                </span>
+            </router-link>
         </headerTop>
         <swiper/>
         <div class="msite-shop-list">
@@ -33,7 +35,7 @@ export default {
         shopList
     },
     computed:{
-        ...mapState(['address'])
+        ...mapState(['address','userInfo'])
     },
     mounted(){
         this.$store.dispatch('getCategorys')

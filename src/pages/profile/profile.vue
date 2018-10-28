@@ -8,7 +8,7 @@
             </section>
         </headerTop>
         <section class="profile-number">
-            <router-link to="/login" class="profile-link">
+            <router-link :to="userInfo._id?'/userinfo':'/login'" class="profile-link">
                 <div class="profile-image">
                     <i class="iconfont icon-geren1"></i>
                 </div>
