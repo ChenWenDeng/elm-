@@ -1,7 +1,7 @@
 <template>
     <div class="shop-list-container">
         <ul v-if="shops.length">
-            <li class="shop-li" v-for="(shop, index) in shops" :key="index">
+            <li class="shop-li" v-for="(shop, index) in shops" :key="index" @click="$router.push('/shop')">
                 <section>
                     <img class="shop-img" :src="shop.image_path">
                 </section>
@@ -17,11 +17,6 @@
                     <h5 class="rating-order-num">
                         <section class="rating-order-num-left">
                             <section class="rating-section">
-                                <!-- <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i>
-                                <i class="iconfont icon-xingxing"></i> -->
                                 <star :score="shop.rating" :size="24"></star>
                                 <span class="rating-num">{{shop.rating}}</span>
                             </section>

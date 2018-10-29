@@ -5,6 +5,11 @@ import search from '../pages/search/search'
 import order from '../pages/order/order'
 import profile from '../pages/profile/profile'
 import login from '../pages/login/login'
+import shop from '../pages/shop/shop'
+import shopGoods from '../pages/shop/shopGoods/shopGoods'
+import shopInfo from '../pages/shop/shopInfo/shopInfo'
+import shopRatings from '../pages/shop/shopRatings/shopRatings'
+
 
 Vue.use(Router)
 
@@ -48,6 +53,75 @@ export default new Router({
     {
       path: '/login',
       component: login
-    }
+    },
+    {
+      path: '/shop',
+      component: shop,
+      children: [
+        {
+          path: '/shop/goods',
+          component: shopGoods,
+        },
+        {
+          path: '/shop/info',
+          component: shopInfo,
+        },
+        {
+          path: '/shop/ratings',
+          component: shopRatings,
+        },
+        {
+          path: '',
+          redirect: '/shop/goods'
+        }
+      ]
+    } 
   ]
 })
+
+
+// export default new VueRouter({
+//   // 所有路由
+//   routes: [
+//     {
+//       path: '/msite',
+//       component: msite, // 返回路由组件的函数, 只有执行此函数才会加载路由组件, 这个函数在请求对应的路由路径时才会执行
+//       meta: {
+//         showFooter: true
+//       }
+//     },
+//     {
+//       path: '/search',
+//       component: search,
+//       meta: {
+//         showFooter: true
+//       }
+//     },
+//     {
+//       path: '/order',
+//       component: order,
+//       meta: {
+//         showFooter: true
+//       }
+//     },
+//     {
+//       path: '/profile',
+//       component: profile,
+//       meta: {
+//         showFooter: true
+//       }
+//     },
+//     {
+//       path: '/',
+//       redirect: '/msite'
+//     },
+//     {
+//       path: '/login',
+//       component: login
+//     },
+//     // {
+//     //   path: '/shop',
+//     //   component: shop,
+//     // },
+//   ]
+// })
