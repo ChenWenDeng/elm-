@@ -21,6 +21,9 @@ import shopHeader from '../../components/shopHeader/shopHeader'
 export default {
     components:{
         shopHeader
+    },
+    mounted(){
+        this.$store.dispatch('getShopInfo')
     }
 }
 </script>
