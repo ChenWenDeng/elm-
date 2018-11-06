@@ -48,6 +48,8 @@ export default {
   [INCREMENT_FOOD_COUNT](state, {food}) {
     if(!food.count){
       Vue.set(food, 'count', 1) // 让新增的属性也有数据绑定
+      // 将food添加到cartFoods中
+      state.cartFoods.push(food)
     }else{
       food.count++
     }
@@ -56,6 +58,10 @@ export default {
   [DECREMENT_FOOD_COUNT](state, {food}) {
     if(food.count){
       food.count--
+      if(food.count===0) {
+        // 将food从cartFoods中移除
+        state.cartFoods.splice(state.cartFoods.indexOf(food), 1)
+      }
     }
   },
 }

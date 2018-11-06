@@ -38,7 +38,7 @@
       padding 0.375rem
       line-height 1.5rem
       font-size 1.25rem
-      color $green
+      color $yellow
       &.move-enter-active, &.move-leave-active
         transition all .3s
       &.move-enter, &.move-leave-to
@@ -58,5 +58,5 @@
       padding: 0.375rem
       line-height: 1.5rem
       font-size: 1.25rem
-      color $green
+      color $yellow
 </style>
