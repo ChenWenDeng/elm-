@@ -2,7 +2,7 @@
     <section class="login-container">
         <div class="login-inner">
             <div class="login-header">
-                <h2 class="login-logo">饿了吗</h2>
+                <h2 class="login-logo">开饭啦</h2>
                 <div class="login-header-title">
                     <a href="javascript:;" :class="{on: loginWay}" @click="loginWay=true">短信登录</a>
                     <a href="javascript:;" :class="{on: !loginWay}" @click="loginWay=false">密码登录</a>
