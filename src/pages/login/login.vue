@@ -22,7 +22,7 @@
                             <input type="text" maxlength="8" placeholder="验证码" v-model="code">
                         </section>
                         <section class="login-hint">
-                            温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
+                            温馨提示：未注册开饭啦外卖帐号的手机号，登录时将自动注册，且代表同意
                             <a href="">《用户服务协议》</a>
                         </section>
                     </div>
