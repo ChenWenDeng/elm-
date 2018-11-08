@@ -11,6 +11,7 @@ import store from './store'
 import './assets/styles/reset.css'
 import './mock/mockServer' //加载mockServer
 import loading from './common/imgs/loading.gif'
+import './fiters' // 加载过滤器
 
 Vue.component(Button.name, Button)
 Vue.use(VueLazyload, { // 内部自定义一个指令lazy
