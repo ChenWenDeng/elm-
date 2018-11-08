@@ -1,9 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import msite from '../pages/msite/msite'
-import search from '../pages/search/search'
-import order from '../pages/order/order'
-import profile from '../pages/profile/profile'
+// import msite from '../pages/msite/msite'
+// import search from '../pages/search/search'
+// import order from '../pages/order/order'
+// import profile from '../pages/profile/profile'
+
+const msite = () => import('../pages/msite/msite.vue')
+const search = () => import('../pages/search/search.vue')
+const order = () => import('../pages/order/order.vue')
+const profile = () => import('../pages/profile/profile.vue')
+
 import login from '../pages/login/login'
 import shop from '../pages/shop/shop'
 import shopGoods from '../pages/shop/shopGoods/shopGoods'
