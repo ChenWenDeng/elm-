@@ -3,7 +3,7 @@
        <div class="swiper-container" v-if="categorys.length">
            <div class="swiper-wrapper">
                <div class="swiper-slide" v-for="(categorys, index) in categorysArr" :key="index">
-                    <div class="link-to-food" v-for="(category, index) in categorys" :key="index">
+                    <div class="link-to-food" v-for="(category, index) in categorys" :key="index" @click="$router.push('/foods')">
                        <div class="food-container">
                            <img class="icon-img-content" :src="baseImageUrl+category.image_url" alt="">
                        </div>

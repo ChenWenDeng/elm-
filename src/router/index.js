@@ -15,6 +15,7 @@ import shop from '../pages/shop/shop'
 import shopGoods from '../pages/shop/shopGoods/shopGoods'
 import shopInfo from '../pages/shop/shopInfo/shopInfo'
 import shopRatings from '../pages/shop/shopRatings/shopRatings'
+import foods from '../pages/foods/foods'
 
 
 Vue.use(Router)
@@ -81,7 +82,11 @@ export default new Router({
           redirect: '/shop/goods'
         }
       ]
-    } 
+    },
+    {
+      path: '/foods',
+      component: foods
+    },
   ]
 })
 
