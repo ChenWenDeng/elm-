@@ -13,9 +13,12 @@
           <div class="desc">另需配送费￥{{info.deliveryPrice}}元</div>
         </div>
         <div class="content-right">
-          <div class="pay" :class="payClass">
+          <router-link  tag="div" :to="payText=='去结算'?'/confirmOrder':''" class="pay" :class="payClass">
             {{payText}}
-          </div>
+          </router-link>
+          <!-- <div class="pay" :class="payClass">
+            {{payText}}
+          </div> -->
         </div>
       </div>
       <transition name="move">
@@ -115,7 +118,7 @@
         MessageBox.confirm('确定清空购物车吗?').then(action => {
           this.$store.dispatch('clearCart')
         }, () => {});
-      }
+      },
     },
     components: {
       CartControl

@@ -94,7 +94,7 @@ export default {
             categoryLi: 0,
             delivery_mode:null,//选中配送的方式
             filterNum: 0, //所选中的所有样式的集合
-            support_ides:null,
+            //support_ides:null,
             support_ids: [], // 选中的商铺活动列表
             //isfilterBg: false,
             categorys:['快餐便当','小吃夜宵','果蔬生鲜','特色菜系','商店超市','鲜花蛋糕','全部商家','甜品饮品','极品红酒','生鲜海鲜','好吃粗粮','日本料理','韩国烤肉'],
@@ -226,7 +226,20 @@ export default {
             }
         },
          //点击商家活动，状态取反
-        selectSupportIds(index, id) { 
+        selectSupportIds(index, id) {
+            if(this.support_ids.length==0){
+                this.support_ids.push(index)
+                console.log(this.support_ids)
+            }
+            for(var i=0; i<this.support_ids.length;i++){
+                if(this.support_ids.indexOf(index)){
+                    console.log(this.support_ids[i])
+                    console.log(this.support_ids)
+                    return 
+                }else{
+                    this.support_ids.push(index)
+                }
+            }
         },
     },
 }
