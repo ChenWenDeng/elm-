@@ -1,13 +1,13 @@
 <template>
     <div class="confirmOrderContainer">
         <headerTop title="确认订单">
-           <router-link class="header_search" slot="left" to="/msite">
+           <router-link class="header_search" slot="left" to="/shop/goods">
                 <i class="iconfont icon-right2"></i>
             </router-link>
             <router-link class="header_login" slot="right" to="/msite">
             </router-link>
         </headerTop>
-        <section class="address_container">  
+        <router-link :to='{path: "/confirmOrder/chooseAddress"}' class="address_container">  
             <div class="address_left">
                 <i class="iconfont icon-weizhi"></i>
             </div>
@@ -18,7 +18,7 @@
             <div class="address_right">
                 <i class="iconfont icon-right1"></i>
             </div>
-        </section>
+        </router-link>
         <section class="delivery-container">
             <div class="delivery-left">
                 <p class="deliver_text">送达时间</p>
@@ -111,6 +111,9 @@
             </div>
             <div class="confirm">确认下单</div>
         </section>
+       <transition name="router-slid" mode="out-in">
+            <router-view class="routers"></router-view>
+        </transition>
     </div>
 </template>
 
@@ -312,6 +315,16 @@ export default {
             text-align: right;
             background: #00b43c;
         }
+    }
+    .routers{
+        margin-bottom: 50px;
+    }
+    .router-slid-enter-active, .router-slid-leave-active {
+        transition: all .4s;
+    }
+    .router-slid-enter, .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
     }
 }
 </style>

@@ -17,6 +17,7 @@ import shopInfo from '../pages/shop/shopInfo/shopInfo'
 import shopRatings from '../pages/shop/shopRatings/shopRatings'
 import foods from '../pages/foods/foods'
 import confirmOrder from '../pages/confirmOrder/confirmOrder'
+import chooseAddress from '../pages/confirmOrder/children/chooseAddress'
 
 
 Vue.use(Router)
@@ -90,7 +91,11 @@ export default new Router({
     },
     {
       path: '/confirmOrder',
-      component: confirmOrder
+      component: confirmOrder,
+      children:[{
+        path: 'chooseAddress',
+        component: chooseAddress
+      }]
     },
   ]
 })
