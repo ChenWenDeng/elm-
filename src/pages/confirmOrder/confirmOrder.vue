@@ -33,7 +33,7 @@
         <section class="pay-container">
             <div class="pay-header">
                 <span>支付方式</span>
-                <span class="header-right">
+                <span class="header-right" @click="showPayWayFun">
                     在线支付
                     <i class="iconfont icon-right1"></i>
                 </span>
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </section>
-        <section class="food_list food_bottom">
+        <section class="food_list">
             <div class="food_item_style">
                 <p class="food_name ">订餐备注</p>
                 <div class="num_price">
@@ -104,6 +104,27 @@
                 </div>
             </div>
         </section>
+        <transition name="fade">
+            <div class="cover" v-show="showPayWay" @click="showPayWayFun"></div>
+        </transition>
+        <transition name="slid-up">
+            <div class="choose-container" v-show="showPayWay">
+                <header>支付方式</header>
+                <ul>
+                    <li>
+                        <div>
+                            <span>货到付款</span>
+                            <span>（商家不支持货到付款）</span>
+                        </div>
+                        <i class="iconfont icon-duigou"></i>
+                    </li>
+                    <li>
+                        <span>在线支付</span>
+                        <i class="iconfont icon-duigou icon-duigou-end" @click="showPayWayFun"></i>
+                    </li>
+                </ul>
+            </div>
+        </transition>
         <section class="confrim_order">
             <div class="stay-payment">
                 待支付
@@ -120,8 +141,18 @@
 <script>
 import headerTop from '../../components/headerTop/headerTop'
 export default {
+    data(){
+        return{
+            showPayWay: false,//支付方式的显示
+        }
+    },
     components:{
         headerTop,
+    },
+    methods:{
+        showPayWayFun(){
+            this.showPayWay=!this.showPayWay
+        }
     }
 }
 </script>
@@ -130,7 +161,9 @@ export default {
 @import '.~styles/mixin.scss';
 .confirmOrderContainer{
     background: #f2f2f2;
-    padding-bottom: 1.25rem;
+    //padding-bottom: 1.25rem;
+    padding-bottom: 3.125rem;
+
     .address_container{
         display: flex;
         align-items: center;
@@ -144,8 +177,8 @@ export default {
         .address_center{
             width: 80%;
             p:nth-child(2){
-                margin-top: 5px;
-                font-size: 12px;
+                margin-top: 0.3125rem;
+                font-size: 0.75rem;
             }
         }
         .address_right{
@@ -179,7 +212,7 @@ export default {
             text-align: right;
             .deliver_time{
                 font-size: 1.125rem;
-                letter-spacing: 1px;
+                letter-spacing: 0.0625rem;
                 color: $yellow;
                 margin-bottom: 0.625rem;
             }
@@ -187,8 +220,8 @@ export default {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 60px;
-                height:18px;
+                width: 3.75rem;
+                height:1.125rem;
                 background: $yellow;
                 border-radius: 0.3125rem;
                 font-size: 0.6875rem;
@@ -200,20 +233,23 @@ export default {
         //display: flex;
         //align-items: center;
         width:100%;
-        padding: 10px 1.25rem;
+        padding: 0.625rem 1.25rem;
         background: #fff;
         margin-top: 0.625rem;
         .pay-header{
             width:100%;
-            padding: 15px 0;
+            padding: 0.9375rem 0;
             display: flex;
             justify-content: space-between; 
-            border-bottom: 1px solid #ccc;
+            border-bottom: 0.0625rem solid #ccc;
             .header-right{
-                font-size: 13px;
+                min-width:6.25rem;
+                height: 100%; 
+                font-size: 0.8125rem;
+                text-align: right;
                 color: #ccc;
                 i{
-                    font-size: 10px;
+                    font-size: 0.625rem;
                 }
             }
         }
@@ -221,26 +257,26 @@ export default {
             display: flex;
             justify-content: space-between; 
             width:100%;
-            padding: 15px 0;
+            padding: 0.9375rem 0;
             color:#ccc;
-            font-size: 14px;
+            font-size: 0.875rem;
         }
     }
     .food_list{
         width:100%;
-        padding: 0 20px;
-        margin-top: 10px;
+        padding: 0 1.25rem;
+        margin-top: 0.625rem;
         background: #fff;
         .foods-header{
             display: flex;
             //justify-content: center;
             align-items: center;
             width:100%;
-            padding: 15px 0; 
+            padding: 0.9375rem 0; 
             img{
-                width: 50px;
-                height: 50px;
-                margin-right: 5px;
+                width: 3.125rem;
+                height: 3.125rem;
+                margin-right: 0.3125rem;
             }
         }
         .food_list_ul{
@@ -249,7 +285,7 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 width:100%;
-                padding:15px 0;
+                padding:0.9375rem 0;
                 .food_name{
                     width: 70%;
                 }
@@ -266,7 +302,7 @@ export default {
            display: flex;
             justify-content: space-between;
             width:100%;
-            padding:15px 0;
+            padding:0.9375rem 0;
             .food_name{
                 width: 65%;
             }
@@ -278,16 +314,55 @@ export default {
                 }
                 .demand{
                     color: #ccc;
-                    font-size: 14px;
+                    font-size: 0.875rem;
                     i{
-                        font-size: 12px;
+                        font-size: 0.75rem;
                     }
                 }
             }
         }
-        &.food_bottom{
-            margin-bottom: 50px;
+    }
+    .choose-container{
+        z-index: 200;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        min-height: 15.625rem;
+        padding: 1.25rem;
+        background: #fff;
+        header{
+            width:100%;
+            text-align: center;
         }
+        ul{
+            width: 100%;
+            margin-top:1.25rem;
+            li{
+                width: 100%;
+                padding:1.25rem 0;
+                display: flex;
+                justify-content: space-between;
+                .icon-duigou{
+                    font-size: 1.25rem;
+                    color: #ccc;
+                    &.icon-duigou-end{
+                        font-size: 1.25rem;
+                        color: #00b43c;
+                    }
+                }
+            }
+        }
+        
+    }
+    .cover{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        background-color: rgba(0,0,0,.3);
     }
     .confrim_order{
         position: fixed;
@@ -296,28 +371,40 @@ export default {
         display: flex;
         align-items: center;
         width:100%;
-        height: 50px;
-        margin-top: 50px;
+        height: 3.125rem;
+        margin-top: 3.125rem;
         background: black;
         color:#fff;
         .stay-payment{
             width:70%;
-            padding-left: 20px;
-            font-size: 18px;
+            padding-left: 1.25rem;
+            font-size: 1.125rem;
         }
         .confirm{
             width: 30%;
-            height: 50px;
+            height: 3.125rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 1.125rem;
             text-align: right;
             background: #00b43c;
         }
     }
     .routers{
-        margin-bottom: 50px;
+        margin-bottom: 3.125rem;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .3s;
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
+    }
+    .slid-up-enter-active, .slid-up-leave-active {
+        transition: all .3s;
+    }
+    .slid-up-enter, .slid-up-leave-active {
+        transform: translate3d(0,15.625rem,0)
     }
     .router-slid-enter-active, .router-slid-leave-active {
         transition: all .4s;
