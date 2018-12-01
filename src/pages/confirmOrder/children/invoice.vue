@@ -9,7 +9,7 @@
         </headerTop>
         <section class="choose_invoice">
             <span>不需要开发票</span>
-            <i class="iconfont icon-duigou icon-end"></i>
+            <i class="iconfont icon-duigou"></i>
         </section>
         <div class="determine">确定</div>
     </div>
@@ -46,9 +46,6 @@ export default {
         background: #fff;
         .icon-duigou{
             font-size: 20px;
-            &.icon-end{
-                color: #00b43c;
-            }
         }
     }
     .determine{
