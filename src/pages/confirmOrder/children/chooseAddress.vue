@@ -1,6 +1,6 @@
 <template>
     <div class="rating-page">
-        <headerTop title="确认订单">
+        <headerTop title="选择地址">
            <router-link class="header_search" slot="left" to="/confirmOrder">
                 <i class="iconfont icon-right2"></i>
             </router-link>
@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '.~styles/mixin.scss';
     .rating-page{
         position: fixed;
         top: 0;

@@ -40,7 +40,7 @@
             </div>
             <div class="pay-footer">
                 <span>红包</span>
-                <span>暂时只在饿了么 APP 中支持</span>
+                <span>开饭啦 APP 中暂不支持</span>
             </div>
         </section>
         <section class="food_list">
@@ -85,7 +85,7 @@
             </div>
         </section>
         <section class="food_list">
-            <div class="food_item_style">
+            <router-link :to='{path: "/confirmOrder/remark"}' class="food_item_style">
                 <p class="food_name ">订餐备注</p>
                 <div class="num_price">
                     <span class="price demand">
@@ -93,8 +93,8 @@
                         <i class="iconfont icon-right1"></i>
                     </span>
                 </div>
-            </div>
-            <div class="food_item_style">
+            </router-link>
+            <router-link :to='{path: "/confirmOrder/invoice"}' class="food_item_style">
                 <p class="food_name ">发票抬头</p>
                 <div class="num_price">
                     <span class="price demand">
@@ -102,7 +102,7 @@
                         <i class="iconfont icon-right1"></i>
                     </span>
                 </div>
-            </div>
+            </router-link>
         </section>
         <transition name="fade">
             <div class="cover" v-show="showPayWay" @click="showPayWayFun"></div>
