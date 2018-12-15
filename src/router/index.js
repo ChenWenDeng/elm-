@@ -21,6 +21,8 @@ import chooseAddress from '../pages/confirmOrder/children/chooseAddress'
 import remark from '../pages/confirmOrder/children/remark'
 import invoice from '../pages/confirmOrder/children/invoice'
 
+const info = () => import('../pages/profile/children/info')
+
 
 Vue.use(Router)
 
@@ -59,7 +61,13 @@ export default new Router({
       component: profile,
       meta:{
         showFooter: true
-      }
+      },
+      children:[
+        {
+          path:'info',
+          component:info
+        }
+      ]
     },
     {
       path: '/login',

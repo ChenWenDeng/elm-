@@ -8,7 +8,8 @@
             </section>
         </headerTop>
         <section class="profile-number">
-            <router-link :to="userInfo._id?'/userinfo':'/login'" class="profile-link">
+            <!-- <router-link :to="userInfo._id?'/userinfo':'/login'" class="profile-link"> -->
+            <router-link :to="userInfo._id?'/profile/info':'/login'" class="profile-link">
                 <div class="profile-image">
                     <i class="iconfont icon-geren1"></i>
                 </div>
@@ -100,6 +101,9 @@
                 退出登录
             </mt-button>
         </section>
+        <transition name="router-slid" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -338,6 +342,13 @@ export default {
             .exit-button{
                 width: 100%;
             }
+        }
+        .router-slid-enter-active, .router-slid-leave-active {
+            transition: all .4s;
+        }
+        .router-slid-enter, .router-slid-leave-active {
+            transform: translate3d(2rem, 0, 0);
+            opacity: 0;
         }
     }
 
