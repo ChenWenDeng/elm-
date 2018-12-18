@@ -15,13 +15,13 @@
                     <i class="iconfont icon-right"></i>
                 </div>
             </section>
-            <section class="headportrait">
+            <router-link tag="section" to="/profile/info/setusername" class="headportrait">
                 <h2>用户名</h2>
                 <div class="headportrait-div">
                     <p></p>
                     <i class="iconfont icon-right"></i>
                 </div>
-            </section>
+            </router-link>
             <section class="headportrait">
 
                 <h2>收货地址</h2>
@@ -56,6 +56,9 @@
                 </div>
             </section>
         </section>
+        <transition name="router-slid" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -139,6 +142,13 @@ export default {
                 margin-right: 0.3rem;
             }
         }
+    }
+    .router-slid-enter-active, .router-slid-leave-active {
+        transition: all .4s;
+    }
+    .router-slid-enter, .router-slid-leave-active {
+        transform: translate3d(2rem, 0, 0);
+        opacity: 0;
     }
 }
 </style>

@@ -22,6 +22,7 @@ import remark from '../pages/confirmOrder/children/remark'
 import invoice from '../pages/confirmOrder/children/invoice'
 
 const info = () => import('../pages/profile/children/info')
+const setusername = () => import('../pages/profile/children/children/setusername')
 
 
 Vue.use(Router)
@@ -65,7 +66,13 @@ export default new Router({
       children:[
         {
           path:'info',
-          component:info
+          component:info,
+          children:[
+            {
+              path:'setusername',
+              component:setusername
+            }
+          ]
         }
       ]
     },
@@ -120,49 +127,3 @@ export default new Router({
   ]
 })
 
-
-// export default new VueRouter({
-//   // 所有路由
-//   routes: [
-//     {
-//       path: '/msite',
-//       component: msite, // 返回路由组件的函数, 只有执行此函数才会加载路由组件, 这个函数在请求对应的路由路径时才会执行
-//       meta: {
-//         showFooter: true
-//       }
-//     },
-//     {
-//       path: '/search',
-//       component: search,
-//       meta: {
-//         showFooter: true
-//       }
-//     },
-//     {
-//       path: '/order',
-//       component: order,
-//       meta: {
-//         showFooter: true
-//       }
-//     },
-//     {
-//       path: '/profile',
-//       component: profile,
-//       meta: {
-//         showFooter: true
-//       }
-//     },
-//     {
-//       path: '/',
-//       redirect: '/msite'
-//     },
-//     {
-//       path: '/login',
-//       component: login
-//     },
-//     // {
-//     //   path: '/shop',
-//     //   component: shop,
-//     // },
-//   ]
-// })
