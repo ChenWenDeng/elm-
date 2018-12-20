@@ -23,6 +23,7 @@ import invoice from '../pages/confirmOrder/children/invoice'
 
 const info = () => import('../pages/profile/children/info')
 const setusername = () => import('../pages/profile/children/children/setusername')
+const address = () => import('../pages/profile/children/children/address')
 
 
 Vue.use(Router)
@@ -71,6 +72,10 @@ export default new Router({
             {
               path:'setusername',
               component:setusername
+            },
+            {
+              path:'address',
+              component:address
             }
           ]
         }

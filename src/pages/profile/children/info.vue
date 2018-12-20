@@ -22,14 +22,15 @@
                     <i class="iconfont icon-right"></i>
                 </div>
             </router-link>
-            <section class="headportrait">
-
+            <!-- <section class="headportrait"> -->
+            <router-link tag="section" to="/profile/info/address" class="headportrait">
                 <h2>收货地址</h2>
                 <div class="headportrait-div">
                     <p></p>
                     <i class="iconfont icon-right"></i>
                 </div>
-            </section>
+             </router-link>
+            <!-- </section> -->
         </section>
         <section class="profile-info">
             <p class="title-p">收货地址</p>
