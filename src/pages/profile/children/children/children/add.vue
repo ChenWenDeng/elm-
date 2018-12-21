@@ -1,30 +1,19 @@
 <template>
     <div class="rating_page">
-        <headerTop title="编辑地址">
+        <headerTop title="新增地址">
             <router-link class="header_search" slot="left" to="/profile/info">
                 <i class="iconfont icon-right2"></i>
             </router-link>
             <section class="header_login" slot="right"> 
-                <span>编辑</span> 
             </section>
         </headerTop>
         <section class="address-container">
-            <router-link tag="section" to="/profile/info/address/add" class="headportrait">
-                <h2>新增地址</h2>
-                <div class="headportrait-div">
-                    <p></p>
-                    <i class="iconfont icon-right"></i>
-                </div>
-             </router-link>
         </section>
-        <transition name="router-slid" mode="out-in">
-            <router-view></router-view>
-        </transition>
     </div>
 </template>
 
 <script>
-import headerTop from '../../../../components/headerTop/headerTop'
+import headerTop from '../../../../../components/headerTop/headerTop'
 export default {
     components:{
         headerTop
@@ -79,13 +68,6 @@ export default {
                 }
             }
         }
-    }
-    .router-slid-enter-active, .router-slid-leave-active {
-        transition: all .4s;
-    }
-    .router-slid-enter, .router-slid-leave-active {
-        transform: translate3d(2rem, 0, 0);
-        opacity: 0;
     }
 }
 

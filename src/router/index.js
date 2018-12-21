@@ -1,30 +1,35 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import msite from '../pages/msite/msite'
-// import search from '../pages/search/search'
-// import order from '../pages/order/order'
-// import profile from '../pages/profile/profile'
+
+// import login from '../pages/login/login'
+// import shop from '../pages/shop/shop'
+// import shopGoods from '../pages/shop/shopGoods/shopGoods'
+// import shopInfo from '../pages/shop/shopInfo/shopInfo'
+// import shopRatings from '../pages/shop/shopRatings/shopRatings'
+// import foods from '../pages/foods/foods'
+// import confirmOrder from '../pages/confirmOrder/confirmOrder'
+// import chooseAddress from '../pages/confirmOrder/children/chooseAddress'
+// import remark from '../pages/confirmOrder/children/remark'
+// import invoice from '../pages/confirmOrder/children/invoice'
 
 const msite = () => import('../pages/msite/msite.vue')
 const search = () => import('../pages/search/search.vue')
 const order = () => import('../pages/order/order.vue')
 const profile = () => import('../pages/profile/profile.vue')
-
-import login from '../pages/login/login'
-import shop from '../pages/shop/shop'
-import shopGoods from '../pages/shop/shopGoods/shopGoods'
-import shopInfo from '../pages/shop/shopInfo/shopInfo'
-import shopRatings from '../pages/shop/shopRatings/shopRatings'
-import foods from '../pages/foods/foods'
-import confirmOrder from '../pages/confirmOrder/confirmOrder'
-import chooseAddress from '../pages/confirmOrder/children/chooseAddress'
-import remark from '../pages/confirmOrder/children/remark'
-import invoice from '../pages/confirmOrder/children/invoice'
-
+const login = () => import('../pages/login/login')
+const shop = () => import('../pages/shop/shop')
+const shopGoods = () => import('../pages/shop/shopGoods/shopGoods')
+const shopInfo = () => import('../pages/shop/shopInfo/shopInfo')
+const shopRatings = () => import('../pages/shop/shopRatings/shopRatings')
+const foods = () => import('../pages/foods/foods')
+const confirmOrder = () => import('../pages/confirmOrder/confirmOrder')
+const chooseAddress = () => import('../pages/confirmOrder/children/chooseAddress')
+const remark = () => import('../pages/confirmOrder/children/remark')
+const invoice = () => import('../pages/confirmOrder/children/invoice')
 const info = () => import('../pages/profile/children/info')
 const setusername = () => import('../pages/profile/children/children/setusername')
 const address = () => import('../pages/profile/children/children/address')
-
+const add = () => import('../pages/profile/children/children/children/add')
 
 Vue.use(Router)
 
@@ -75,7 +80,13 @@ export default new Router({
             },
             {
               path:'address',
-              component:address
+              component:address,
+              children:[
+                {
+                  path:'add',
+                  component:add
+                },
+              ]
             }
           ]
         }

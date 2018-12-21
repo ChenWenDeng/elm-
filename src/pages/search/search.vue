@@ -1,6 +1,12 @@
 <template>
   <section class="search">
-    <HeaderTop title="搜索"/>
+    <headerTop title="搜索">
+            <router-link class="header_search" slot="left" to="/msite">
+                <i class="iconfont icon-right2"></i>
+            </router-link>
+            <section class="header_login" slot="right"> 
+            </section>
+        </headerTop>
     <form class="search_form" @submit.prevent="search">
       <input type="search" placeholder="请输入商家名称" class="search_input" v-model="keyword">
       <input type="submit" class="search_submit">

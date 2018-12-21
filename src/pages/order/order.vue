@@ -1,16 +1,18 @@
 <template>
     <div class="order--page">
         <headerTop title="订单列表">
-            <section class="header_search" slot="left">
+            <router-link class="header_search" slot="left" to="/msite">
                 <i class="iconfont icon-right2"></i>
-            </section>
+            </router-link>
             <section class="header_login" slot="right"> 
             </section>
         </headerTop>
         <section class="order-no-login">
             <img src="http://img5.imgtn.bdimg.com/it/u=488869050,2484180533&fm=26&gp=0.jpg" alt="">
             <h3>登录后查看外卖订单</h3>
-            <button>立即登录</button>
+            <router-link to="/profile" tag="button">
+                立即登录
+            </router-link>
         </section>
     </div>
 </template>

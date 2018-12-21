@@ -4,7 +4,7 @@
             <router-link class="header_search" slot="left" to="/profile/info">
                 <i class="iconfont icon-right2"></i>
             </router-link>
-            <section class="header_login" slot="right"> 
+            <section class="header_login" slot="right">
             </section>
         </headerTop>
         <section class="setname-container">

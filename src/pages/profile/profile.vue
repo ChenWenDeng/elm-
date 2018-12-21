@@ -1,9 +1,9 @@
 <template>
     <div class="profile-page">
         <headerTop title="我的">
-            <section class="header_search" slot="left">
+            <router-link class="header_search" slot="left" to="/msite">
                 <i class="iconfont icon-right2"></i>
-            </section>
+            </router-link>
             <section class="header_login" slot="right"> 
             </section>
         </headerTop>
